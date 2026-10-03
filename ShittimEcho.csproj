@@ -37,5 +37,10 @@
     </Page>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Music\floating_tower.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>
