@@ -1,558 +1,202 @@
-# 什亭之匣·回响
+# 咸鱼喵喵·喵露露终端
 
 <p align="center">
-  <strong>Shittim Chest: Echo</strong>
+  <strong>Nyaruru Fishy Fight</strong>
 </p>
 
 <p align="center">
-  一款基于 C#、WPF 与 .NET 10 开发的 Windows 桌面项目
+  基于 C#、WPF 与 .NET 10 开发的 Windows 桌面锁屏音乐工具
 </p>
 
 <p align="center">
-  <img src="./ShittimLoadingLogo.png" alt="什亭之匣·回响 Logo" width="180">
+  <img src="./ShittimLoadingLogo.png" alt="咸鱼喵喵 Logo" width="200">
 </p>
 
-<h1 align="center">什亭之匣·回响</h1>
+<h1 align="center">咸鱼喵喵·喵露露终端</h1>
 
 <p align="center">
-  <strong>Shittim Chest: Echo</strong>
+  <strong>Nyaruru Fishy Fight</strong>
 </p>
 
 <p align="center">
   一个基于 <strong>C# · WPF · .NET 10</strong> 开发的 Windows 桌面项目
   <br>
-  灵感来源于《蔚蓝档案》中的「什亭之匣」
+  魔改自 <a href="https://github.com/Soymilk-520/ShittimEcho">什亭之匣·回响</a>，主题替换为《咸鱼喵喵》
 </p>
 
 <p align="center">
-  <a href="https://github.com/你的GitHub用户名/ShittimEcho">
-    <img src="https://img.shields.io/github/stars/你的GitHub用户名/ShittimEcho?style=for-the-badge&logo=github&label=Stars" alt="GitHub Stars">
-  </a>
-  <a href="https://github.com/你的GitHub用户名/ShittimEcho">
-    <img src="https://img.shields.io/github/forks/你的GitHub用户名/ShittimEcho?style=for-the-badge&logo=github&label=Forks" alt="GitHub Forks">
-  </a>
   <img src="https://img.shields.io/badge/C%23-.NET%2010-512BD4?style=for-the-badge&logo=csharp&logoColor=white" alt="C# .NET 10">
   <img src="https://img.shields.io/badge/WPF-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="WPF Windows">
-</p>
-
-<p align="center">
-  <a href="https://github.com/你的GitHub用户名/ShittimEcho">
-    <img src="https://img.shields.io/badge/GitHub-项目主页-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub 项目主页">
-  </a>
-</p>
-
-<br>
-
-<p align="center">
-  <strong>💬 官方 QQ 群</strong>
-  <br>
-  什亭之匣回响项目部
-  <br>
-  群号：1125620277
-</p>
-
-<p align="center">
-  <a href="https://qm.qq.com/q/v2rWqjpYkg">
-    <img src="https://img.shields.io/badge/👉%20点击加入官方群聊-12B7F5?style=for-the-badge&logo=tencentqq&logoColor=white" alt="点击加入官方群聊">
-  </a>
-</p>
-
-<br>
-
-<p align="center">
-  <strong>❤️ 爱发电主页</strong>
-  <br>
-  项目作者的爱发电主页导航
-</p>
-
-<p align="center">
-  <a href="https://afdian.com/a/soymilk520">
-    <img src="https://img.shields.io/badge/❤️%20访问我的爱发电主页-F36C6C?style=for-the-badge&logo=afdian&logoColor=white" alt="访问我的爱发电主页">
-  </a>
+  <img src="https://img.shields.io/badge/BGM-60%20tracks-FF69B4?style=for-the-badge" alt="60 BGM tracks">
 </p>
 
 <br>
 
 ---
+
 ## 📖 项目简介
 
-**什亭之匣·回响（Shittim Chest: Echo）** 是一个基于 **C# + WPF + .NET 10** 开发的 Windows 桌面项目。
+**咸鱼喵喵·喵露露终端** 是基于 **什亭之匣·回响（Shittim Chest: Echo）** 魔改的 Windows 桌面工具。
 
-本项目以《蔚蓝档案》中的「什亭之匣」为灵感，希望将其具有代表性的系统体验逐步融入 Windows 桌面环境。
+将原项目的蔚蓝档案/什亭之匣主题全部替换为《咸鱼喵喵》（Nyaruru Fishy Fight）主题：
 
-项目目前处于**第一代版本**。
+- 🎨 粉色系 UI 主题（原冰蓝色）
+- 🖼️ 喵露露主背景、水晶 CG 终端背景、Q版图标与头像
+- 🎵 60 首游戏原版 BGM（从 APK 解密提取）
+- 📝 全部界面文字替换为咸鱼喵喵相关
 
-第一代版本主要用于实现项目最基础的 Windows 启动与登录音频体验，为后续的交互系统、角色系统以及更加完整的什亭之匣桌面体验奠定基础。
+核心功能保持不变：Windows 锁屏音乐 + 登录欢迎语音。
 
 ---
 
-# ✨ 当前已实现功能
+## ✨ 功能
 
-目前已经实际实现并完成测试的功能主要包括以下两项。
+### 🔒 Windows 锁屏音乐
 
-## 🔒 Windows 开机 / 锁屏音乐
-
-Windows 启动后，程序可以在用户进入 Windows 桌面之前运行，并在 Windows 登录 / 锁屏界面阶段播放指定音乐。
-
-当前启动流程：
+Windows 启动后，程序在登录/锁屏界面阶段播放指定音乐。
 
 ```text
-Windows 启动
-     │
-     ▼
-Windows 登录 / 锁屏界面
-     │
-     ▼
-什亭之匣·回响启动
-     │
-     ▼
-播放锁屏音乐
+Windows 启动 → 登录/锁屏界面 → 播放锁屏音乐
 ```
 
-该功能是第一代版本目前最核心的功能之一。
+### 🔊 登录欢迎语音
 
----
-
-## 🔊 进入 Windows 桌面后的欢迎语音
-
-当用户完成 Windows 登录并进入桌面后，程序可以检测到用户从锁屏状态进入 Windows 桌面的状态变化。
-
-随后停止或淡出锁屏音乐，并播放预先配置的欢迎语音。
-
-当前流程：
+用户登录进入桌面后，停止锁屏音乐并播放欢迎语音。
 
 ```text
-用户登录 Windows
-       │
-       ▼
-检测进入桌面
-       │
-       ▼
-停止 / 淡出锁屏音乐
-       │
-       ▼
-播放欢迎语音
-       │
-       ▼
-进入 Windows 桌面
+用户登录 → 检测进入桌面 → 淡出音乐 → 播放欢迎语音
 ```
 
-该功能用于模拟「进入什亭之匣系统后获得语音欢迎」的体验。
+### 🎵 60 首游戏 BGM
+
+内置 60 首《咸鱼喵喵》原版 OGG 音频，包括：
+
+- **场景音乐**：喵露镇、浮游高塔、黑森林、冰原、失落世界、魔法学校、星之海…
+- **Boss 战**：喵露露、莉莉亚、璃音（多阶段）、德古拉、樱花、Theia…
+- **其他**：主题曲、回忆、睡前故事、小游戏、DLC、俄罗斯方块彩蛋…
 
 ---
 
-# 🖥️ 第一代版本启动流程
+## 🚀 快速开始
 
-目前第一代版本的完整启动体验可以概括为：
+### 下载预编译版本
 
-```text
-┌──────────────────────┐
-│      Windows 启动     │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│  Windows 登录 / 锁屏  │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│     播放锁屏音乐      │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│      用户登录         │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│   停止 / 淡出音乐     │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│      播放欢迎语音     │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│     Windows 桌面      │
-└──────────────────────┘
-```
+1. 打开 [Actions 页面](https://github.com/lelecz/ShittimEcho/actions)
+2. 点击最新一次成功的 run
+3. 页面底部下载 `ShittimEcho-Release` 压缩包
+4. 解压后运行 `ShittimEcho.exe`
 
-目前第一代版本主要围绕这套启动体验进行开发。
+### 配置音乐目录
+
+程序默认从 `%LOCALAPPDATA%\ShittimEcho\Music` 读取音乐。60 首 BGM 已打包在 exe 同目录的 `Music/` 文件夹中，需要手动指定：
+
+1. 打开程序 → 设置
+2. 将音乐目录改为 exe 旁边的 `Music` 文件夹
+3. 保存，锁屏时即会随机播放
 
 ---
 
-# 🚧 当前开发状态
+## 🛠️ 从源码编译
 
-## 第一代版本
+### 环境要求
 
-**状态：核心功能已完成**
+- Windows 10/11
+- .NET 10 SDK
+- Visual Studio（含 .NET 桌面开发组件）
 
-| 功能               | 状态    |
-| ---------------- | ----- |
-| Windows 开机启动     | ✅ 已实现 |
-| Windows 锁屏阶段音乐播放 | ✅ 已实现 |
-| Windows 登录状态检测   | ✅ 已实现 |
-| 进入桌面后的欢迎语音       | ✅ 已实现 |
-| Windows 启动集成     | ✅ 已实现 |
-
-以上功能均已经在开发环境中进行测试。
-
----
-
-# ⚠️ 尚未实现的功能
-
-以下功能目前**尚未实现**，属于项目后续开发计划。
-
-### 💬 交互系统
-
-* 实时交互
-* 实时对话
-* 实时聊天系统
-* 桌面交互系统
-* 角色回应系统
-
-### 👤 角色系统
-
-* 阿罗娜角色模型
-* 普拉娜角色模型
-* 人物模型动画
-* 人物模型表情管理
-* 角色状态系统
-
-### 📱 桃信 / 学生系统
-
-* Momotalk / 桃信系统
-* 学生消息系统
-* 学生交流功能
-* 角色通信功能
-
-### 📚 其他功能
-
-* 《蔚蓝档案》Wiki 相关功能
-* 更多《蔚蓝档案》相关资源整合
-* 更多什亭之匣风格的 Windows 控制功能
-
-> 以上内容均属于未来计划，目前不代表已经实现。
-
----
-
-# 🗺️ 开发路线图
-
-## 第一阶段 —— 基础启动系统
-
-* [x] Windows 开机启动
-* [x] Windows 锁屏音乐
-* [x] Windows 登录状态检测
-* [x] 桌面欢迎语音
-* [x] Windows 启动集成
-
-**当前第一代版本主要完成这一阶段。**
-
----
-
-## 第二阶段 —— 音频与程序系统
-
-计划加入更加完整的交互能力：
-
-* [ ] 实时交互系统
-* [ ] 实时聊天
-* [ ] 桌面交互
-* [ ] 角色回应
-* [ ] 用户与角色之间的实时交互
-
----
-
-## 第三阶段 —— 人物模型系统
-
-计划加入角色模型以及更加丰富的表现：
-
-* [ ] 阿罗娜模型
-* [ ] 普拉娜模型
-* [ ] 人物动画
-* [ ] 人物动作
-* [ ] 人物模型表情管理
-* [ ] 根据交互内容产生不同表情
-
----
-
-## 第四阶段 —— 桃信 / 学生系统
-
-计划进一步扩展角色交流：
-
-* [ ] 桃信 / Momotalk 系统
-* [ ] 学生消息系统
-* [ ] 学生通信
-* [ ] 角色对话
-* [ ] 学生互动功能
-
----
-
-## 第五阶段 —— 什亭之匣生态扩展
-
-最终计划逐步加入：
-
-* [ ] 更多什亭之匣 UI
-* [ ] 更多系统控制元素
-* [ ] 《蔚蓝档案》Wiki 相关功能
-* [ ] 更多角色相关功能
-* [ ] 更多 Windows 桌面整合功能
-
-> 路线图会随着项目开发情况进行调整，具体功能与开发顺序可能发生变化。
-
----
-
-# 🛠️ 技术栈
-
-| 项目      | 技术      |
-| ------- | ------- |
-| 开发语言    | C#      |
-| UI 框架   | WPF     |
-| .NET 版本 | .NET 10 |
-| 运行平台    | Windows |
-| 音频框架    | NAudio  |
-| OGG 支持  | NVorbis |
-
----
-
-# 💻 开发环境要求
-
-如果希望从源码运行本项目，需要准备：
-
-* Windows
-* .NET 10 SDK
-* Visual Studio
-* .NET 桌面开发相关组件
-* WPF 开发环境
-
----
-
-# 🚀 开始使用
-
-## 1. 克隆项目
+### 编译步骤
 
 ```bash
-git clone https://github.com/<你的用户名>/ShittimEcho.git
-```
-
-进入项目目录：
-
-```bash
+git clone https://github.com/lelecz/ShittimEcho.git
 cd ShittimEcho
-```
-
----
-
-## 2. 还原依赖
-
-```bash
 dotnet restore
+dotnet build -c Release
 ```
+
+### GitHub Actions 自动编译
+
+项目配置了 `.github/workflows/build.yml`，每次 push 到 main 分支会自动：
+
+1. 编译 Release 版本
+2. 冒烟测试（启动 exe，等待 10 秒确认不崩溃）
+3. 上传编译产物
 
 ---
 
-## 3. 编译项目
-
-```bash
-dotnet build
-```
-
----
-
-## 4. 运行项目
-
-```bash
-dotnet run
-```
-
-> 由于本项目涉及 Windows 启动、登录状态以及系统音频等功能，实际运行效果可能受到 Windows 系统环境、权限以及本地配置影响。
-
----
-
-# 📁 项目结构
-
-项目目前采用较为清晰的功能模块划分。
+## 📁 项目结构
 
 ```text
 ShittimEcho/
-│
 ├─ Core/
-│  ├─ Audio/
-│  ├─ Music/
-│  └─ Voice/
-│
-├─ Windows/
-│
-├─ App.xaml
-├─ App.xaml.cs
-├─ MainWindow.xaml
-├─ MainWindow.xaml.cs
-├─ SettingsWindow.xaml
-├─ SettingsWindow.xaml.cs
-│
-├─ ShittimEcho.csproj
-└─ README.md
-```
-
-随着项目继续开发，项目结构也会根据功能模块进一步调整。
-
----
-
-# 📸 截图与演示
-
-项目的截图以及演示视频将在后续开发过程中逐步补充。
-
-目前第一代版本主要展示：
-
-```text
-Windows 开机
-     ↓
-Windows 锁屏
-     ↓
-锁屏音乐
-     ↓
-用户登录
-     ↓
-音乐停止 / 淡出
-     ↓
-欢迎语音
-     ↓
-Windows 桌面
-```
-
-后续随着 UI、交互系统以及人物模型等功能加入，项目展示内容也会进一步扩展。
-
----
-
-# 🔮 项目愿景
-
-**什亭之匣·回响**并不只是一个简单的 Windows 音频播放器。
-
-项目的长期目标，是逐步将「什亭之匣」的系统体验融入 Windows 桌面环境。
-
-整体发展方向计划为：
-
-```text
-Windows 启动体验
-        │
-        ▼
-Windows 桌面整合
-        │
-        ▼
-音频系统
-        │
-        ▼
-什亭之匣 UI
-        │
-        ▼
-交互系统
-        │
-        ▼
-人物模型
-        │
-        ▼
-人物表情与动作
-        │
-        ▼
-实时通信
-        │
-        ▼
-完整的什亭之匣式 Windows 桌面体验
-```
-
-第一代版本只是整个项目的起点。
-
-未来希望逐步让 Windows 不只是一个操作系统桌面，而能够拥有更加完整的「什亭之匣」式交互体验。
-
----
-
-# 🤝 参与贡献
-
-欢迎对本项目感兴趣的开发者提出：
-
-* Bug 反馈
-* 功能建议
-* UI 设计建议
-* 技术方案讨论
-* Pull Request
-* 项目改进建议
-
-如果发现问题，建议在 GitHub Issues 中提供以下信息：
-
-* Windows 版本
-* .NET 版本
-* 问题发生步骤
-* 错误信息
-* 相关日志
-* 截图或视频
-
-如果准备进行较大规模的功能修改，建议先通过 Issue 进行讨论。
-
----
-
-# 📜 开源协议
-
-本项目源代码计划采用 **MIT License** 开源。
-
-详细内容请查看：
-
-```text
-LICENSE
+│  ├─ Audio/          # 音频引擎、解码器、音乐管理
+│  ├─ Music/          # 音乐库扫描、路径管理
+│  ├─ Voice/          # 语音库
+│  └─ Diagnostics/    # 启动日志、系统检测
+├─ Windows/           # 会话/电源监控
+├─ Music/             # 60 首 BGM（OGG）
+├─ App.xaml / .cs     # 应用入口
+├─ MainWindow.xaml    # 主窗口（终端界面）
+├─ SettingsWindow.xaml# 设置窗口
+├─ ShittimMainBackground.jpg   # 主背景（喵露露宣传图）
+├─ ShittimBackground.png       # 终端背景（水晶 CG）
+├─ ShittimLoadingLogo.png      # 加载 Logo（双角色主视觉）
+├─ ShittimEchoIcon.ico         # 应用图标（Q版喵露露）
+├─ CreatorAvatar.jpeg          # 制作人头像
+└─ ShittimEcho.csproj
 ```
 
 ---
 
-# ⚠️ 版权与免责声明
+## 🎨 魔改内容
 
-**什亭之匣·回响（Shittim Chest: Echo）是一个非官方同人项目。**
-
-本项目的创作灵感来源于《蔚蓝档案》以及其中的「什亭之匣」概念。
-
-本项目与 **NEXON、NEXON Games、《蔚蓝档案》官方及相关权利持有者不存在官方关联、授权、赞助或合作关系。**
-
-《蔚蓝档案》相关的：
-
-* 角色
-* 名称
-* 商标
-* 游戏素材
-* 音乐
-* 配音
-* 人物模型
-* 图片
-* 其他相关内容
-
-其版权及相关权利均归各自的权利持有人所有。
-
-本仓库主要用于发布本项目自身的源代码以及原创开发内容。
-
-本项目不会通过开源代码授予任何第三方素材的再分发权利。
-
-如果用户自行向程序中添加音乐、语音、模型、图片或其他第三方资源，应确保相关资源来源合法，并拥有相应的使用权限。
+| 项目 | 原版（什亭之匣） | 魔改版（咸鱼喵喵） |
+|------|-----------------|-------------------|
+| 主背景 | 蔚蓝档案风格 | 喵露露粉色宣传图 1280×720 |
+| 终端背景 | 深蓝科技风 | 紫色水晶 CG 1280×720 |
+| 加载 Logo | 什亭之匣标识 | 咸鱼喵喵双角色主视觉 500×266 |
+| 应用图标 | 原版图标 | Q版喵露露生无可恋脸（6尺寸 ICO） |
+| 制作人头像 | 原版 | Q版喵露露脸 400×400 |
+| 主题色 | 冰蓝/深蓝 | 粉色/玫红系（218 处替换） |
+| 程序名 | 什亭之匣·回响 | 咸鱼喵喵·喵露露终端 |
+| 英文名 | Shittim Chest: Echo | Nyaruru Fishy Fight |
+| BGM | 无（需自行添加） | 60 首游戏原版 |
 
 ---
 
-# 💙 什亭之匣·回响
+## 🔧 技术栈
+
+| 项目 | 技术 |
+|------|------|
+| 开发语言 | C# |
+| UI 框架 | WPF |
+| .NET 版本 | .NET 10 |
+| 运行平台 | Windows |
+| 音频框架 | NAudio 3.1.0 |
+| OGG 解码 | NAudio.Vorbis 3.0.0 |
+
+---
+
+## ⚠️ 版权与免责声明
+
+**咸鱼喵喵·喵露露终端是一个非官方同人魔改项目。**
+
+- 本项目基于 [什亭之匣·回响](https://github.com/Soymilk-520/ShittimEcho) 魔改，原项目版权归原作者所有
+- 《咸鱼喵喵》（Nyaruru Fishy Fight）相关的角色、名称、商标、游戏素材、音乐、图片等版权归各自权利持有人所有
+- 本项目仅用于学习与个人使用，不用于商业用途
+- 内置 BGM 从游戏 APK 中解密提取，仅供个人欣赏
+
+---
+
+## 🤝 原项目
+
+- **原项目**：[Soymilk-520/ShittimEcho](https://github.com/Soymilk-520/ShittimEcho)
+- **原作者**：Soymilk-520（Irst_春川）
+- **魔改**：lelecz
 
 <p align="center">
-  <strong>Shittim Chest: Echo</strong>
-</p>
-
-<p align="center">
-  什亭之匣·回响
-</p>
-
-<p align="center">
-  第一代版本已经完成核心启动功能。
-</p>
-
-<p align="center">
-  未来还将继续扩展。
-</p>
-
-<p align="center">
-  <strong>这只是开始。</strong>
+  <strong>咸鱼喵喵·喵露露终端</strong>
+  <br>
+  Nyaruru Fishy Fight
+  <br>
+  <em>基于什亭之匣·回响魔改</em>
 </p>
