@@ -183,7 +183,6 @@ ShittimEcho/
 - 本项目基于 [什亭之匣·回响](https://github.com/Soymilk-520/ShittimEcho) 魔改，原项目版权归原作者所有
 - 《咸鱼喵喵》（Nyaruru Fishy Fight）相关的角色、名称、商标、游戏素材、音乐、图片等版权归各自权利持有人所有
 - 本项目仅用于学习与个人使用，不用于商业用途
-- 内置 BGM 从游戏 APK 中解密提取，仅供个人欣赏
 
 ---
 
