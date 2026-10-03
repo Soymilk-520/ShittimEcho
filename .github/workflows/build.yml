@@ -24,6 +24,43 @@ jobs:
     - name: Build (Release)
       run: dotnet build --configuration Release --no-restore
 
+    - name: Smoke test - launch exe
+      shell: pwsh
+      run: |
+        $exe = Get-ChildItem -Path . -Filter "ShittimEcho.exe" -Recurse | Select-Object -First 1
+        Write-Output "Found exe: $($exe.FullName)"
+        $proc = Start-Process -FilePath $exe.FullName -PassThru -RedirectStandardOutput stdout.txt -RedirectStandardError stderr.txt -WindowStyle Hidden
+        Start-Sleep -Seconds 10
+        if (-not $proc.HasExited) {
+          Write-Output "RESULT: RUNNING - process alive after 10s (PID $($proc.Id))"
+          Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+        } else {
+          Write-Output "RESULT: EXITED - code $($proc.ExitCode)"
+        }
+        Write-Output "--- STDOUT ---"
+        if (Test-Path stdout.txt) { Get-Content stdout.txt } else { Write-Output "(empty)" }
+        Write-Output "--- STDERR ---"
+        if (Test-Path stderr.txt) { Get-Content stderr.txt } else { Write-Output "(empty)" }
+
+    - name: Smoke test - check logs
+      shell: pwsh
+      run: |
+        $logDir = Join-Path $env:LOCALAPPDATA "ShittimEcho"
+        Write-Output "Looking for logs in: $logDir"
+        if (Test-Path $logDir) {
+          Get-ChildItem $logDir -Recurse | ForEach-Object {
+            Write-Output "LOG: $($_.FullName) ($($_.Length) bytes)"
+            Get-Content $_.FullName -Tail 30
+          }
+        } else {
+          Write-Output "No log directory found at $logDir"
+          Write-Output "Searching for any .log files..."
+          Get-ChildItem -Path . -Filter "*.log" -Recurse -ErrorAction SilentlyContinue | ForEach-Object {
+            Write-Output "LOG: $($_.FullName)"
+            Get-Content $_.FullName -Tail 20
+          }
+        }
+
     - name: Upload build output
       uses: actions/upload-artifact@v4
       with:
