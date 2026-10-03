@@ -43,7 +43,7 @@ namespace ShittimEcho
 
         /*
          * ============================================================
-         * 什亭之匣移动控制终端
+         * 喵喵移动控制终端
          * ============================================================
          *
          * 主界面顶部专用窗口拖动区域。
@@ -231,7 +231,7 @@ namespace ShittimEcho
          * 恢复主窗口
          *
          * 托盘菜单：
-         * 打开什亭之匣
+         * 打开咸鱼喵喵
          * 退出程序
          *
          * 只有“退出程序”才真正结束进程。
@@ -242,7 +242,7 @@ namespace ShittimEcho
                 new FormsNotifyIcon();
 
             _trayIcon.Text =
-                "什亭之匣 · 回响";
+                "咸鱼喵喵 · 喵露露终端";
 
             try
             {
@@ -275,7 +275,7 @@ namespace ShittimEcho
 
             var openMenuItem =
                 new FormsToolStripMenuItem(
-                    "打开什亭之匣");
+                    "打开咸鱼喵喵");
 
             var exitMenuItem =
                 new FormsToolStripMenuItem(
@@ -570,7 +570,7 @@ namespace ShittimEcho
                 WpfMessageBox.Show(
                     this,
                     "配置已保存。",
-                    "什亭之匣·回响",
+                    "咸鱼喵喵·喵露露终端",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
@@ -580,7 +580,7 @@ namespace ShittimEcho
                     this,
                     "保存配置失败。\n\n" +
                     exception.Message,
-                    "什亭之匣·回响",
+                    "咸鱼喵喵·喵露露终端",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }

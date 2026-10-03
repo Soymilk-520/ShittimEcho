@@ -155,16 +155,16 @@ namespace ShittimEcho
             try
             {
                 SystemStatusText.Text =
-                    "什亭之匣 · 回响正在运行";
+                    "咸鱼喵喵 · 喵露露终端正在运行";
 
                 SystemStatusDetailText.Text =
-                    "后台音频监控模块已准备就绪";
+                    "喵喵音频监控模块已准备就绪";
 
                 Process currentProcess =
                     Process.GetCurrentProcess();
 
                 SystemStatusDetailText.Text =
-                    $"后台音频监控模块已准备就绪 · PID {currentProcess.Id}";
+                    $"喵喵音频监控模块已准备就绪 · PID {currentProcess.Id}";
             }
             catch
             {

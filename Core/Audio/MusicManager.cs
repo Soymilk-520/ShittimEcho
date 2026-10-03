@@ -175,7 +175,7 @@ namespace ShittimEcho.Core.Music
 
             _isStopping = false;
 
-            // 什亭之匣锁屏音乐默认采用随机播放。
+            // 咸鱼喵喵锁屏音乐默认采用随机播放。
             // App.xaml.cs 无需修改；进入 Start() 时统一确保随机模式。
             PlayMode = MusicPlayMode.Random;
 

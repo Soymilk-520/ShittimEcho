@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Shittim Chest: Echo"
+        Title="Nyaruru Fishy Fight"
         Width="1280"
         Height="720"
         WindowStartupLocation="CenterScreen"
@@ -14,39 +14,39 @@
     <Window.Resources>
 
         <!-- ===================================== -->
-        <!-- SHITTIM CHEST TERMINAL THEME          -->
+        <!-- NYARURU TERMINAL THEME          -->
         <!-- ===================================== -->
 
 
         <!-- 主终端蓝 -->
         <SolidColorBrush x:Key="TerminalBlue"
-                     Color="#294B62"/>
+                     Color="#8B3A62"/>
 
 
         <!-- 辅助蓝 -->
         <SolidColorBrush x:Key="TerminalLightBlue"
-                     Color="#58778A"/>
+                     Color="#C97A9A"/>
 
 
         <!-- 统一亚克力玻璃面板：左侧 / 右侧 / 底部 HUD 使用同一材质深度 -->
         <LinearGradientBrush x:Key="TerminalAcrylicPanel" StartPoint="0,0" EndPoint="0,1">
             <!-- 降低蓝色饱和度，以冰白 / 极浅蓝为主体，仅保留少量粉紫层次 -->
-            <GradientStop Color="#82D8E9F1" Offset="0"/>
-            <GradientStop Color="#78C9DDE9" Offset="0.46"/>
-            <GradientStop Color="#72C4D8E5" Offset="0.78"/>
-            <GradientStop Color="#70C2D0E0" Offset="1"/>
+            <GradientStop Color="#E982B0F1" Offset="0"/>
+            <GradientStop Color="#DD78A8E9" Offset="0.46"/>
+            <GradientStop Color="#D872A0E5" Offset="0.78"/>
+            <GradientStop Color="#D0709CE0" Offset="1"/>
         </LinearGradientBrush>
 
         <!-- 亚克力玻璃边缘 -->
-        <SolidColorBrush x:Key="TerminalAcrylicBorder" Color="#B8F4FAFF"/>
+        <SolidColorBrush x:Key="TerminalAcrylicBorder" Color="#F4B8D4FF"/>
 
         <!-- 保留旧资源名，避免其他界面引用失效 -->
-        <SolidColorBrush x:Key="TerminalGlassPanel" Color="#6A5B7280"/>
-        <SolidColorBrush x:Key="TerminalGlassBorder" Color="#B8F4FAFF"/>
+        <SolidColorBrush x:Key="TerminalGlassPanel" Color="#725B6A80"/>
+        <SolidColorBrush x:Key="TerminalGlassBorder" Color="#F4B8D4FF"/>
 
         <!-- 亚克力面板的柔和外发光 -->
         <DropShadowEffect x:Key="TerminalAcrylicShadow"
-                          Color="#8ADCF0FF"
+                          Color="#F08AB8FF"
                           BlurRadius="16"
                           ShadowDepth="0"
                           Opacity="0.12"/>
@@ -54,7 +54,7 @@
 
         <!-- 系统高亮 -->
         <SolidColorBrush x:Key="TerminalAccent"
-                     Color="#39C5FF"/>
+                     Color="#FF6B9D"/>
 
 
         <!-- 在线状态 -->
@@ -64,7 +64,7 @@
 
         <!-- 在线状态文字：比状态灯更深，确保浅色背景下清晰可读 -->
         <SolidColorBrush x:Key="TerminalOnlineText"
-                     Color="#087A61"/>
+                     Color="#A84A6A"/>
 
 
         <!-- 警告状态 -->
@@ -92,7 +92,7 @@
 
 
 
-        <!-- 什亭之匣风格协议开关：保留原 CheckBox 的 IsChecked 行为，仅优化尺寸与等间距视觉 -->
+        <!-- 咸鱼喵喵风格协议开关：保留原 CheckBox 的 IsChecked 行为，仅优化尺寸与等间距视觉 -->
         <Style x:Key="ShittimProtocolToggleStyle" TargetType="{x:Type CheckBox}">
             <Setter Property="Width" Value="58"/>
             <Setter Property="Height" Value="22"/>
@@ -102,14 +102,14 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type CheckBox}">
                         <Border x:Name="ToggleBorder"
-                                Background="#20DFF4FF"
-                                BorderBrush="#38BFE8"
+                                Background="#F42080FF"
+                                BorderBrush="#F07AA8"
                                 BorderThickness="1"
                                 CornerRadius="11">
                             <Grid Margin="5,0">
                                 <TextBlock x:Name="ToggleText"
                                            Text="OFF"
-                                           Foreground="#24546B"
+                                           Foreground="#8A4A6A"
                                            FontSize="8"
                                            FontWeight="SemiBold"
                                            VerticalAlignment="Center"
@@ -117,18 +117,18 @@
                                 <Ellipse x:Name="ToggleThumb"
                                          Width="12"
                                          Height="12"
-                                         Fill="#8AAFC0"
+                                         Fill="#D0B0C0"
                                          HorizontalAlignment="Right"
                                          VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="ToggleBorder" Property="Background" Value="#2439C5FF"/>
-                                <Setter TargetName="ToggleBorder" Property="BorderBrush" Value="#39C5FF"/>
+                                <Setter TargetName="ToggleBorder" Property="Background" Value="#C5396BFF"/>
+                                <Setter TargetName="ToggleBorder" Property="BorderBrush" Value="#FF6B9D"/>
                                 <Setter TargetName="ToggleText" Property="Text" Value="ON"/>
-                                <Setter TargetName="ToggleText" Property="Foreground" Value="#087A61"/>
-                                <Setter TargetName="ToggleThumb" Property="Fill" Value="#39C5FF"/>
+                                <Setter TargetName="ToggleText" Property="Foreground" Value="#A84A6A"/>
+                                <Setter TargetName="ToggleThumb" Property="Fill" Value="#FF6B9D"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="ToggleBorder" Property="BorderThickness" Value="1.5"/>
@@ -143,7 +143,7 @@
         </Style>
 
         <!-- ===================================== -->
-        <!-- SHITTIM CHEST TERMINAL BUTTON         -->
+        <!-- NYARURU TERMINAL BUTTON         -->
         <!-- ===================================== -->
 
 
@@ -305,7 +305,7 @@
                      Height="420"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     Fill="#087FC8EE"
+                     Fill="#C80868EE"
                      Opacity="0.018"/>
 
             <Ellipse x:Name="AuthenticationGlow"
@@ -314,7 +314,7 @@
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
                      Margin="0,115,0,0"
-                     Fill="#147FC8EE"
+                     Fill="#C81468EE"
                      Opacity="0"/>
 
             <Grid x:Name="AuthenticationMark"
@@ -387,7 +387,7 @@
                      Height="520"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     Fill="#087FC8EE"
+                     Fill="#C80868EE"
                      Opacity="0.012"/>
 
             <Ellipse x:Name="LoadingAmbientGlow"
@@ -404,7 +404,7 @@
                 <Ellipse x:Name="Particle1"
                          Width="2"
                          Height="2"
-                         Fill="#5B7890"
+                         Fill="#B07A90"
                          Canvas.Left="170"
                          Canvas.Top="180"
                          Opacity="0"/>
@@ -412,7 +412,7 @@
                 <Ellipse x:Name="Particle2"
                          Width="1.5"
                          Height="1.5"
-                         Fill="#7D9AAF"
+                         Fill="#C5A0B5"
                          Canvas.Left="300"
                          Canvas.Top="125"
                          Opacity="0"/>
@@ -420,7 +420,7 @@
                 <Ellipse x:Name="Particle3"
                          Width="2"
                          Height="2"
-                         Fill="#5B7890"
+                         Fill="#B07A90"
                          Canvas.Left="430"
                          Canvas.Top="205"
                          Opacity="0"/>
@@ -428,7 +428,7 @@
                 <Ellipse x:Name="Particle4"
                          Width="1.5"
                          Height="1.5"
-                         Fill="#7D9AAF"
+                         Fill="#C5A0B5"
                          Canvas.Left="850"
                          Canvas.Top="175"
                          Opacity="0"/>
@@ -436,7 +436,7 @@
                 <Ellipse x:Name="Particle5"
                          Width="2"
                          Height="2"
-                         Fill="#5B7890"
+                         Fill="#B07A90"
                          Canvas.Left="1010"
                          Canvas.Top="215"
                          Opacity="0"/>
@@ -444,7 +444,7 @@
                 <Ellipse x:Name="Particle6"
                          Width="1.5"
                          Height="1.5"
-                         Fill="#7D9AAF"
+                         Fill="#C5A0B5"
                          Canvas.Left="1080"
                          Canvas.Top="420"
                          Opacity="0"/>
@@ -452,7 +452,7 @@
                 <Ellipse x:Name="Particle7"
                          Width="2"
                          Height="2"
-                         Fill="#5B7890"
+                         Fill="#B07A90"
                          Canvas.Left="225"
                          Canvas.Top="510"
                          Opacity="0"/>
@@ -460,7 +460,7 @@
                 <Ellipse x:Name="Particle8"
                          Width="1.5"
                          Height="1.5"
-                         Fill="#7D9AAF"
+                         Fill="#C5A0B5"
                          Canvas.Left="440"
                          Canvas.Top="560"
                          Opacity="0"/>
@@ -468,7 +468,7 @@
                 <Ellipse x:Name="Particle9"
                          Width="2"
                          Height="2"
-                         Fill="#5B7890"
+                         Fill="#B07A90"
                          Canvas.Left="810"
                          Canvas.Top="535"
                          Opacity="0"/>
@@ -476,7 +476,7 @@
                 <Ellipse x:Name="Particle10"
                          Width="1.5"
                          Height="1.5"
-                         Fill="#7D9AAF"
+                         Fill="#C5A0B5"
                          Canvas.Left="1000"
                          Canvas.Top="500"
                          Opacity="0"/>
@@ -497,8 +497,8 @@
 
                 <TextBlock x:Name="LoadingTitleText"
                            Grid.Row="0"
-                           Text="什亭之匣 · 回响"
-                           Foreground="#174A68"
+                           Text="咸鱼喵喵 · 喵露露终端"
+                           Foreground="#8B3A62"
                            FontSize="25"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Center"
@@ -519,7 +519,7 @@
                                Height="145"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               Fill="#174A68"
+                               Fill="#8B3A62"
                                Opacity="1"
                                IsHitTestVisible="False">
 
@@ -551,15 +551,15 @@
                         <Ellipse x:Name="LoadingDot1"
                                  Width="5"
                                  Height="5"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Center"
                                  Margin="2,0,0,0"
                                  Opacity="0"/>
 
                         <TextBlock x:Name="LoadingMessage1"
-                                   Text="正在连接到基沃托斯什亭之匣终端……"
-                                   Foreground="#174A68"
+                                   Text="正在连接到喵喵小镇终端……"
+                                   Foreground="#8B3A62"
                                    FontSize="16"
                                    FontWeight="SemiBold"
                                    VerticalAlignment="Center"
@@ -573,7 +573,7 @@
                         <Ellipse x:Name="LoadingDot2"
                                  Width="5"
                                  Height="5"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Center"
                                  Margin="2,0,0,0"
@@ -581,7 +581,7 @@
 
                         <TextBlock x:Name="LoadingMessage2"
                                    Text="正在确认老师的连接状态……"
-                                   Foreground="#174A68"
+                                   Foreground="#8B3A62"
                                    FontSize="16"
                                    FontWeight="SemiBold"
                                    VerticalAlignment="Center"
@@ -595,15 +595,15 @@
                         <Ellipse x:Name="LoadingDot3"
                                  Width="5"
                                  Height="5"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Center"
                                  Margin="2,0,0,0"
                                  Opacity="0"/>
 
                         <TextBlock x:Name="LoadingMessage3"
-                                   Text="正在同步什亭之匣音频回路……"
-                                   Foreground="#174A68"
+                                   Text="正在同步喵喵音频回路……"
+                                   Foreground="#8B3A62"
                                    FontSize="16"
                                    FontWeight="SemiBold"
                                    VerticalAlignment="Center"
@@ -617,15 +617,15 @@
                         <Ellipse x:Name="LoadingDot4"
                                  Width="5"
                                  Height="5"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Center"
                                  Margin="2,0,0,0"
                                  Opacity="0"/>
 
                         <TextBlock x:Name="LoadingMessage4"
-                                   Text="正在检索回响资料……"
-                                   Foreground="#174A68"
+                                   Text="正在检索喵喵资料……"
+                                   Foreground="#8B3A62"
                                    FontSize="16"
                                    FontWeight="SemiBold"
                                    VerticalAlignment="Center"
@@ -639,7 +639,7 @@
                         <Ellipse x:Name="LoadingDot5"
                                  Width="5"
                                  Height="5"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Center"
                                  Margin="2,0,0,0"
@@ -647,7 +647,7 @@
 
                         <TextBlock x:Name="LoadingMessage5"
                                    Text="正在建立语音通讯……"
-                                   Foreground="#174A68"
+                                   Foreground="#8B3A62"
                                    FontSize="16"
                                    FontWeight="SemiBold"
                                    VerticalAlignment="Center"
@@ -661,7 +661,7 @@
                 <TextBlock x:Name="FinalLoadingText"
                            Grid.Row="3"
                            Width="620"
-                           Foreground="#174A68"
+                           Foreground="#8B3A62"
                            FontSize="17"
                            FontWeight="SemiBold"
                            TextAlignment="Center"
@@ -691,7 +691,7 @@
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center">
 
-                        <Border Background="#8AA6B8"
+                        <Border Background="#C8A8B5"
                                 CornerRadius="3.5"/>
 
                         <Border x:Name="LoadingBarFill"
@@ -699,7 +699,7 @@
                                 Height="5"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
-                                Background="#174A68"
+                                Background="#8B3A62"
                                 CornerRadius="2.5"/>
 
                     </Grid>
@@ -708,7 +708,7 @@
                             Height="20"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Background="#174A68"
+                            Background="#8B3A62"
                             CornerRadius="4">
 
                         <TextBlock x:Name="LoadingPercentageText"
@@ -730,21 +730,21 @@
 
                         <Polygon x:Name="LoadingBarTip"
                                  Points="0,0 8,3 0,6"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  Canvas.Left="10"
                                  Canvas.Top="13"
                                  Opacity="0"/>
 
                         <Polygon x:Name="TipParticle1"
                                  Points="0,0 5,2.5 0,5"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  Canvas.Left="10"
                                  Canvas.Top="9"
                                  Opacity="0"/>
 
                         <Polygon x:Name="TipParticle2"
                                  Points="0,0 4,2 0,4"
-                                 Fill="#5B7890"
+                                 Fill="#B07A90"
                                  Canvas.Left="10"
                                  Canvas.Top="17"
                                  Opacity="0"/>
@@ -752,7 +752,7 @@
                         <Ellipse x:Name="TipParticle3"
                                  Width="3"
                                  Height="3"
-                                 Fill="#174A68"
+                                 Fill="#8B3A62"
                                  Canvas.Left="10"
                                  Canvas.Top="8"
                                  Opacity="0"/>
@@ -760,7 +760,7 @@
                         <Ellipse x:Name="TipParticle4"
                                  Width="2"
                                  Height="2"
-                                 Fill="#6E8CA0"
+                                 Fill="#C99AAD"
                                  Canvas.Left="10"
                                  Canvas.Top="21"
                                  Opacity="0"/>
@@ -785,7 +785,7 @@
                      Height="460"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     Fill="#173F5F"
+                     Fill="#7A2B4A"
                      Opacity="0"/>
 
             <TextBlock x:Name="WelcomeText"
@@ -813,12 +813,12 @@
                    VerticalAlignment="Stretch"
                    IsHitTestVisible="False"/>
 
-            <Rectangle Fill="#180B2638"
+            <Rectangle Fill="#260B1838"
                        IsHitTestVisible="False"/>
 
 
             <!-- ================================================= -->
-            <!-- 什亭之匣移动控制终端                                 -->
+            <!-- 喵喵移动控制终端                                 -->
             <!-- 顶部中央专用窗口拖动区域。                           -->
             <!-- ================================================= -->
             <Border x:Name="WindowMoveControlTerminal"
@@ -828,25 +828,25 @@
                     VerticalAlignment="Top"
                     Margin="0,10,0,0"
                     Panel.ZIndex="20"
-                    Background="#BFEAF4F8"
+                    Background="#F4E0EAF8"
                     BorderBrush="#E8FFFFFF"
                     BorderThickness="1"
                     CornerRadius="27"
                     Cursor="SizeAll"
                     MouseLeftButtonDown="WindowMoveControlTerminal_MouseLeftButtonDown"
-                    ToolTip="按住此处移动什亭之匣窗口">
+                    ToolTip="按住此处移动窗口">
 
                 <StackPanel HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
-                    <TextBlock Text="什亭之匣移动控制终端"
-                               Foreground="#174A68"
+                    <TextBlock Text="喵喵移动控制终端"
+                               Foreground="#8B3A62"
                                FontSize="12"
                                FontWeight="SemiBold"
                                HorizontalAlignment="Center"/>
 
-                    <TextBlock Text="SHITTIM CHEST · MOVEMENT CONTROL TERMINAL"
-                               Foreground="#315D76"
+                    <TextBlock Text="NYARURU · MOVEMENT CONTROL"
+                               Foreground="#9A5070"
                                FontSize="8"
                                FontWeight="SemiBold"
                                HorizontalAlignment="Center"
@@ -870,13 +870,13 @@
 
                     <StackPanel VerticalAlignment="Top">
 
-                        <TextBlock Text="什亭之匣 · 回响"
-                                   Foreground="#173F5F"
+                        <TextBlock Text="咸鱼喵喵 · 喵露露终端"
+                                   Foreground="#7A2B4A"
                                    FontSize="26"
                                    FontWeight="SemiBold"/>
 
-                        <TextBlock Text="SHITTIM CHEST : ECHO"
-                                   Foreground="#1D4A66"
+                        <TextBlock Text="NYARURU : FISHY FIGHT"
+                                   Foreground="#7E3558"
                                    FontSize="9"
                                    FontWeight="SemiBold"
                                    Margin="1,2,0,0"/>
@@ -895,12 +895,12 @@
 
                             <Ellipse Width="7"
                                      Height="7"
-                                     Fill="#174A68"
+                                     Fill="#8B3A62"
                                      VerticalAlignment="Center"
                                      Margin="0,0,7,0"/>
 
                             <TextBlock Text="SYSTEM ONLINE"
-                                       Foreground="#173F5F"
+                                       Foreground="#7A2B4A"
                                        FontSize="10"
                                        FontWeight="SemiBold"
                                        VerticalAlignment="Center"/>
@@ -974,13 +974,13 @@
 
                                         <TextBlock Grid.Column="0"
                                                    Text="音频核心"
-                                                   Foreground="#173F5F"
+                                                   Foreground="#7A2B4A"
                                                    FontSize="18"
                                                    FontWeight="SemiBold"/>
 
                                         <TextBlock Grid.Column="1"
                                                    Text="◇  AUDIO CORE · 音频核心"
-                                                   Foreground="#1D4A66"
+                                                   Foreground="#7E3558"
                                                    FontSize="9"
                                                    FontWeight="SemiBold"
                                                    VerticalAlignment="Center"
@@ -989,7 +989,7 @@
 
                                     <TextBlock Grid.Row="1"
                                                Text="锁屏音乐频道"
-                                               Foreground="#1D4A66"
+                                               Foreground="#7E3558"
                                                FontSize="11"
                                                Margin="0,2,0,0"/>
                                 </Grid>
@@ -1000,7 +1000,7 @@
 
                                 <TextBlock Grid.Row="2"
            Text="音乐数据库路径"
-           Foreground="#173F5F"
+           Foreground="#7A2B4A"
            FontSize="10"
            FontWeight="SemiBold"
            Margin="0,10,0,3"/>
@@ -1027,7 +1027,7 @@
                  Text="尚未设置音乐文件夹"
                  Background="Transparent"
                  BorderThickness="0"
-                 Foreground="#173F5F"
+                 Foreground="#7A2B4A"
                  FontSize="10"
                  Padding="9,0"
                  VerticalContentAlignment="Center"
@@ -1040,7 +1040,7 @@
             Grid.Column="1"
             Content="选择"
             Background="#E8FFFFFF"
-            Foreground="#173F5F"
+            Foreground="#7A2B4A"
             BorderBrush="#FFFFFFFF"
             BorderThickness="1"
             FontSize="10"
@@ -1065,7 +1065,7 @@
 
                      Style="{StaticResource TerminalStatusDotStyle}"
 
-                     Fill="#39C5FF"
+                     Fill="#FF6B9D"
 
                      VerticalAlignment="Center"
 
@@ -1074,7 +1074,7 @@
 
                                     <TextBlock Text="音频数据库已连接  ·  DATABASE LINKED"
 
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
 
                        FontSize="9"/>
 
@@ -1132,13 +1132,13 @@
 
                                         <TextBlock Grid.Column="0"
                                                    Text="语音通讯"
-                                                   Foreground="#173F5F"
+                                                   Foreground="#7A2B4A"
                                                    FontSize="18"
                                                    FontWeight="SemiBold"/>
 
                                         <TextBlock Grid.Column="1"
                                                    Text="◇  VOICE LINK · 语音通讯"
-                                                   Foreground="#1D4A66"
+                                                   Foreground="#7E3558"
                                                    FontSize="9"
                                                    FontWeight="SemiBold"
                                                    VerticalAlignment="Center"
@@ -1147,7 +1147,7 @@
 
                                     <TextBlock Grid.Row="1"
                                                Text="欢迎语音频道"
-                                               Foreground="#1D4A66"
+                                               Foreground="#7E3558"
                                                FontSize="11"
                                                Margin="0,2,0,0"/>
                                 </Grid>
@@ -1161,7 +1161,7 @@
 
                    Text="语音数据库路径"
 
-                   Foreground="#173F5F"
+                   Foreground="#7A2B4A"
 
                    FontSize="10"
 
@@ -1211,7 +1211,7 @@
 
                          BorderThickness="0"
 
-                         Foreground="#173F5F"
+                         Foreground="#7A2B4A"
 
                          FontSize="10"
 
@@ -1237,7 +1237,7 @@
 
                     Background="#E8FFFFFF"
 
-                    Foreground="#173F5F"
+                    Foreground="#7A2B4A"
 
                     BorderBrush="#FFFFFFFF"
 
@@ -1270,7 +1270,7 @@
 
                      Style="{StaticResource TerminalStatusDotStyle}"
 
-                     Fill="#39C5FF"
+                     Fill="#FF6B9D"
 
                      VerticalAlignment="Center"
 
@@ -1279,7 +1279,7 @@
 
                                     <TextBlock Text="欢迎语音系统已连接  ·  VOICE LINKED"
 
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
 
                        FontSize="9"/>
 
@@ -1338,13 +1338,13 @@
 
                                         <TextBlock Grid.Column="0"
                                                    Text="响应系统"
-                                                   Foreground="#173F5F"
+                                                   Foreground="#7A2B4A"
                                                    FontSize="18"
                                                    FontWeight="SemiBold"/>
 
                                         <TextBlock Grid.Column="1"
                                                    Text="◇  RESPONSE · 响应系统"
-                                                   Foreground="#1D4A66"
+                                                   Foreground="#7E3558"
                                                    FontSize="8"
                                                    FontWeight="SemiBold"
                                                    VerticalAlignment="Center"
@@ -1353,7 +1353,7 @@
 
                                     <TextBlock Grid.Row="1"
                                                Text="终端行为协议控制"
-                                               Foreground="#1D4A66"
+                                               Foreground="#7E3558"
                                                FontSize="11"
                                                Margin="0,2,0,0"/>
                                 </Grid>
@@ -1368,7 +1368,7 @@
 
                                     <TextBlock Text="锁屏音乐协议"
 
-                       Foreground="#173F5F"
+                       Foreground="#7A2B4A"
 
                        FontSize="11"
 
@@ -1398,7 +1398,7 @@
 
                                     <TextBlock Text="解锁静音协议"
 
-                       Foreground="#173F5F"
+                       Foreground="#7A2B4A"
 
                        FontSize="11"
 
@@ -1428,7 +1428,7 @@
 
                                     <TextBlock Text="欢迎语音协议"
 
-                       Foreground="#173F5F"
+                       Foreground="#7A2B4A"
 
                        FontSize="11"
 
@@ -1475,7 +1475,7 @@
 
                                     <TextBlock Text="系统行为协议正常运行  ·  PROTOCOL ACTIVE"
 
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
 
                        FontSize="9"/>
 
@@ -1511,16 +1511,16 @@
 
                                 <TextBlock Text="KIVOTOS TERMINAL"
 
-                       Foreground="#173F5F"
+                       Foreground="#7A2B4A"
 
                        FontSize="11"
 
                        FontWeight="SemiBold"/>
 
 
-                                <TextBlock Text="什亭之匣系统监控"
+                                <TextBlock Text="喵喵系统监控"
 
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
 
                        FontSize="10"
 
@@ -1559,16 +1559,16 @@
                             <StackPanel>
 
                                 <TextBlock Text="系统监控"
-                                           Foreground="#173F5F"
+                                           Foreground="#7A2B4A"
                                            FontSize="15"
                                            FontWeight="SemiBold"/>
 
                                 <TextBlock Text="核心状态"
-                                           Foreground="#1D4A66"
+                                           Foreground="#7E3558"
                                            FontSize="10"
                                            Margin="0,3,0,13"/>
 
-                                <!-- 什亭之匣核心：所有信息保持在同一行，避免向下撑开面板 -->
+                                <!-- 喵喵核心：所有信息保持在同一行，避免向下撑开面板 -->
                                 <StackPanel Orientation="Horizontal"
                                             VerticalAlignment="Center"
                                             Margin="0,0,0,11">
@@ -1576,12 +1576,12 @@
                                              Style="{StaticResource TerminalStatusDotStyle}"
                                              Fill="#25D7A3"
                                              Margin="0,0,8,0"/>
-                                    <TextBlock Text="SHITTIM CHEST"
-                                               Foreground="#173F5F"
+                                    <TextBlock Text="NYARURU"
+                                               Foreground="#7A2B4A"
                                                FontSize="10"
                                                FontWeight="SemiBold"
                                                VerticalAlignment="Center"/>
-                                    <TextBlock Text=" · 什亭之匣核心 · ONLINE"
+                                    <TextBlock Text=" · 喵喵核心 · ONLINE"
                                                Foreground="{StaticResource TerminalOnlineText}"
                                                FontSize="9"
                                                Margin="4,0,0,0"
@@ -1594,15 +1594,15 @@
                                             Margin="0,0,0,11">
                                     <Ellipse Width="7" Height="7"
                                              Style="{StaticResource TerminalStatusDotStyle}"
-                                             Fill="#39C5FF"
+                                             Fill="#FF6B9D"
                                              Margin="0,0,8,0"/>
                                     <TextBlock Text="A.R.O.N.A"
-                                               Foreground="#173F5F"
+                                               Foreground="#7A2B4A"
                                                FontSize="10"
                                                FontWeight="SemiBold"
                                                VerticalAlignment="Center"/>
                                     <TextBlock Text=" · 主系统 · READY"
-                                               Foreground="#0B83A8"
+                                               Foreground="#C84A7A"
                                                FontSize="9"
                                                Margin="4,0,0,0"
                                                VerticalAlignment="Center"/>
@@ -1614,15 +1614,15 @@
                                             Margin="0,0,0,11">
                                     <Ellipse Width="7" Height="7"
                                              Style="{StaticResource TerminalStatusDotStyle}"
-                                             Fill="#39C5FF"
+                                             Fill="#FF6B9D"
                                              Margin="0,0,8,0"/>
                                     <TextBlock Text="PLANA"
-                                               Foreground="#173F5F"
+                                               Foreground="#7A2B4A"
                                                FontSize="10"
                                                FontWeight="SemiBold"
                                                VerticalAlignment="Center"/>
                                     <TextBlock Text=" · 辅助系统 · CONNECTED"
-                                               Foreground="#0B83A8"
+                                               Foreground="#C84A7A"
                                                FontSize="9"
                                                Margin="4,0,0,0"
                                                VerticalAlignment="Center"/>
@@ -1636,7 +1636,7 @@
                                              Fill="#25D7A3"
                                              Margin="0,0,8,0"/>
                                     <TextBlock Text="SENSEI LINK"
-                                               Foreground="#173F5F"
+                                               Foreground="#7A2B4A"
                                                FontSize="10"
                                                FontWeight="SemiBold"
                                                VerticalAlignment="Center"/>
@@ -1675,7 +1675,7 @@
                     <Border.Effect>
 
                         <DropShadowEffect
-            Color="#39C5FF"
+            Color="#FF6B9D"
             BlurRadius="18"
             ShadowDepth="0"
             Opacity="0.25"/>
@@ -1710,31 +1710,31 @@
                                 <Ellipse Width="8"
                          Height="8"
                          Style="{StaticResource TerminalStatusDotStyle}"
-                         Fill="#36D9FF"
+                         Fill="#FF85B0"
                          Margin="0,0,10,0"
                          VerticalAlignment="Center"/>
 
                                 <TextBlock Text="音频核心"
-                           Foreground="#173F5F"
+                           Foreground="#7A2B4A"
                            FontSize="12"
                            FontWeight="SemiBold"/>
 
                             </StackPanel>
 
                             <TextBlock Text="AUDIO CORE"
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
                        FontSize="8"
                        FontWeight="SemiBold"
                        Margin="18,3,0,0"/>
 
                             <TextBlock Text="在线"
-                       Foreground="#0B83A8"
+                       Foreground="#C84A7A"
                        FontSize="10"
                        FontWeight="SemiBold"
                        Margin="18,2,0,0"/>
 
                             <TextBlock Text="音轨缓冲 · 就绪"
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
                        FontSize="9"
                        Margin="18,4,0,0"/>
 
@@ -1755,28 +1755,28 @@
 
                             <StackPanel HorizontalAlignment="Center">
 
-                                <TextBlock Text="◇  什亭之匣核心  ◇"
-                           Foreground="#173F5F"
+                                <TextBlock Text="◇  喵喵核心  ◇"
+                           Foreground="#7A2B4A"
                            FontSize="13"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Center"/>
 
-                                <TextBlock Text="SHITTIM CHEST"
-                           Foreground="#1D4A66"
+                                <TextBlock Text="NYARURU"
+                           Foreground="#7E3558"
                            FontSize="8"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Center"
                            Margin="0,3,0,0"/>
 
                                 <TextBlock Text="运行中"
-                           Foreground="#0B83A8"
+                           Foreground="#C84A7A"
                            FontSize="11"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Center"
                            Margin="0,3,0,0"/>
 
                                 <TextBlock Text="老师连接 · 已验证"
-                           Foreground="#1D4A66"
+                           Foreground="#7E3558"
                            FontSize="9"
                            HorizontalAlignment="Center"
                            Margin="0,4,0,0"/>
@@ -1802,35 +1802,35 @@
                         HorizontalAlignment="Right">
 
                                 <TextBlock Text="系统连接"
-                           Foreground="#173F5F"
+                           Foreground="#7A2B4A"
                            FontSize="12"
                            FontWeight="SemiBold"/>
 
                                 <Ellipse Width="8"
                          Height="8"
                          Style="{StaticResource TerminalStatusDotStyle}"
-                         Fill="#36D9FF"
+                         Fill="#FF85B0"
                          Margin="10,0,0,0"
                          VerticalAlignment="Center"/>
 
                             </StackPanel>
 
                             <TextBlock Text="SYSTEM LINK"
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
                        FontSize="8"
                        FontWeight="SemiBold"
                        HorizontalAlignment="Right"
                        Margin="0,3,18,0"/>
 
                             <TextBlock Text="已连接"
-                       Foreground="#0B83A8"
+                       Foreground="#C84A7A"
                        FontSize="10"
                        FontWeight="SemiBold"
                        HorizontalAlignment="Right"
                        Margin="0,2,18,0"/>
 
                             <TextBlock Text="Windows 会话 · 运行中"
-                       Foreground="#1D4A66"
+                       Foreground="#7E3558"
                        FontSize="9"
                        HorizontalAlignment="Right"
                        Margin="0,4,18,0"/>
@@ -1854,7 +1854,7 @@
                         Margin="0,8,0,0"
                         Content="设置"
                         Background="#D9FFFFFF"
-                        Foreground="#173F5F"
+                        Foreground="#7A2B4A"
                         BorderBrush="#FFFFFFFF"
                         BorderThickness="1"
                         FontSize="10"
@@ -1870,7 +1870,7 @@
                         VerticalAlignment="Top"
                         Margin="0,8,0,0"
                         Content="保存配置"
-                        Background="#174A68"
+                        Background="#8B3A62"
                         Foreground="White"
                         BorderBrush="#E8FFFFFF"
                         BorderThickness="1"
@@ -1881,7 +1881,7 @@
             </Grid>
 
             <!-- ========================================================= -->
-            <!-- 什亭之匣 HUD 几何层（第 2 项：极淡系统装饰）             -->
+            <!-- 咸鱼喵喵 HUD 几何层（第 2 项：极淡系统装饰）             -->
             <!-- 仅作为背景 HUD，不参与交互，不改变现有布局               -->
             <!-- ========================================================= -->
             <Canvas IsHitTestVisible="False"
@@ -1889,25 +1889,25 @@
                     Opacity="0.13">
 
                 <!-- 左上角终端标记 -->
-                <Path Stroke="#E8F8FF"
+                <Path Stroke="#FFF0F5"
                       StrokeThickness="1"
                       Data="M 18,118 L 18,96 L 40,96 M 18,118 L 40,118"
                       Opacity="0.65"/>
 
                 <!-- 左侧辅助线 -->
-                <Path Stroke="#E8F8FF"
+                <Path Stroke="#FFF0F5"
                       StrokeThickness="1"
                       Data="M 18,286 L 52,286 M 18,292 L 34,292"
                       Opacity="0.45"/>
 
                 <!-- 右上角终端标记 -->
-                <Path Stroke="#E8F8FF"
+                <Path Stroke="#FFF0F5"
                       StrokeThickness="1"
                       Data="M 1262,118 L 1262,96 L 1240,96 M 1262,118 L 1240,118"
                       Opacity="0.65"/>
 
                 <!-- 右侧辅助线 -->
-                <Path Stroke="#E8F8FF"
+                <Path Stroke="#FFF0F5"
                       StrokeThickness="1"
                       Data="M 1262,286 L 1228,286 M 1262,292 L 1246,292"
                       Opacity="0.45"/>
@@ -1917,7 +1917,7 @@
                          Height="470"
                          Canvas.Left="405"
                          Canvas.Top="126"
-                         Stroke="#E8F8FF"
+                         Stroke="#FFF0F5"
                          StrokeThickness="1"
                          Opacity="0.10"/>
 
@@ -1925,13 +1925,13 @@
                          Height="330"
                          Canvas.Left="475"
                          Canvas.Top="196"
-                         Stroke="#E8F8FF"
+                         Stroke="#FFF0F5"
                          StrokeThickness="1"
                          StrokeDashArray="2,12"
                          Opacity="0.12"/>
 
                 <!-- 中央十字定位标记 -->
-                <Path Stroke="#E8F8FF"
+                <Path Stroke="#FFF0F5"
                       StrokeThickness="1"
                       Data="M 625,338 L 655,338 M 640,323 L 640,353"
                       Opacity="0.16"/>
@@ -1941,31 +1941,31 @@
                          Height="5"
                          Canvas.Left="96"
                          Canvas.Top="318"
-                         Fill="#39C5FF"
+                         Fill="#FF6B9D"
                          Opacity="0.35"/>
 
                 <Ellipse Width="5"
                          Height="5"
                          Canvas.Left="1178"
                          Canvas.Top="318"
-                         Fill="#39C5FF"
+                         Fill="#FF6B9D"
                          Opacity="0.35"/>
 
                 <Ellipse Width="4"
                          Height="4"
                          Canvas.Left="688"
                          Canvas.Top="168"
-                         Fill="#E8F8FF"
+                         Fill="#FFF0F5"
                          Opacity="0.30"/>
 
                 <!-- 底部系统基准线 -->
-                <Path Stroke="#E8F8FF"
+                <Path Stroke="#FFF0F5"
                       StrokeThickness="1"
                       Data="M 18,704 L 18,684 L 72,684 M 1262,684 L 1208,684 L 1208,704"
                       Opacity="0.42"/>
 
                 <!-- 右下角几何节点 -->
-                <Path Stroke="#E8F8FF"
+                <Path Stroke="#FFF0F5"
                       StrokeThickness="1"
                       Data="M 1168,642 L 1184,626 L 1200,642 L 1184,658 Z"
                       Opacity="0.18"/>
@@ -1975,7 +1975,7 @@
                            Height="1"
                            Canvas.Left="20"
                            Canvas.Top="360"
-                           Fill="#E8F8FF"
+                           Fill="#FFF0F5"
                            Opacity="0.045"/>
 
             </Canvas>
@@ -1994,7 +1994,7 @@
 
                 <TextBlock Text="TERMINAL CONTROL"
 
-               Foreground="#1D4A66"
+               Foreground="#7E3558"
 
                FontSize="8"
 
@@ -2036,7 +2036,7 @@
 
                     Background="#F2FFFFFF"
 
-                    Foreground="#174A68"
+                    Foreground="#8B3A62"
 
                     BorderBrush="#80FFFFFF"
 

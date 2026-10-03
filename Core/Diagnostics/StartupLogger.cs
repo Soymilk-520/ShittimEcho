@@ -45,7 +45,7 @@ namespace ShittimEcho.Core.Diagnostics
             Process process = Process.GetCurrentProcess();
 
             Write("========================================");
-            Write("Shittim Chest: Echo");
+            Write("Nyaruru Fishy Fight");
             Write("Version: 0.1.0 Alpha - Genesis");
             Write($"Process ID: {process.Id}");
             Write($"Session ID: {process.SessionId}");

@@ -230,11 +230,11 @@ namespace ShittimEcho
                     $"Application startup failed: {ex}");
 
                 System.Windows.MessageBox.Show(
-                    "Shittim Chest: Echo 启动失败。" +
+                    "咸鱼喵喵 · 喵露露终端 启动失败。" +
                     Environment.NewLine +
                     Environment.NewLine +
                     ex.Message,
-                    "Shittim Chest: Echo",
+                    "Nyaruru Fishy Fight",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
 
