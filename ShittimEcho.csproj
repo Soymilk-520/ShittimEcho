@@ -37,10 +37,5 @@
     </Page>
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="Music\meow_town.ogg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
 </Project>
