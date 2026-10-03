@@ -48,7 +48,7 @@ jobs:
         $logDir = Join-Path $env:LOCALAPPDATA "ShittimEcho"
         Write-Output "Looking for logs in: $logDir"
         if (Test-Path $logDir) {
-          Get-ChildItem $logDir -Recurse | ForEach-Object {
+          Get-ChildItem $logDir -Recurse -File| ForEach-Object {
             Write-Output "LOG: $($_.FullName) ($($_.Length) bytes)"
             Get-Content $_.FullName -Tail 30
           }
