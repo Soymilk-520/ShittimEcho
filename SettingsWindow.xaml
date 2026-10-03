@@ -1,0 +1,1061 @@
+<Window x:Class="ShittimEcho.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="什亭之匣 · 设置"
+        Width="900"
+        Height="600"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False">
+
+    <Window.Resources>
+
+        <Style x:Key="SettingsButtonStyle"
+               TargetType="{x:Type Button}">
+            <Setter Property="Background"
+                    Value="#D9FFFFFF"/>
+            <Setter Property="Foreground"
+                    Value="#174A68"/>
+            <Setter Property="BorderBrush"
+                    Value="#FFFFFFFF"/>
+            <Setter Property="BorderThickness"
+                    Value="1"/>
+            <Setter Property="FontSize"
+                    Value="11"/>
+            <Setter Property="FontWeight"
+                    Value="SemiBold"/>
+            <Setter Property="Padding"
+                    Value="18,0"/>
+            <Setter Property="Cursor"
+                    Value="Hand"/>
+        </Style>
+
+        <Style x:Key="SettingsNavigationButtonStyle"
+               TargetType="{x:Type Button}">
+            <Setter Property="Height"
+                    Value="58"/>
+            <Setter Property="Margin"
+                    Value="0,0,0,8"/>
+            <Setter Property="Background"
+                    Value="#66FFFFFF"/>
+            <Setter Property="Foreground"
+                    Value="#174A68"/>
+            <Setter Property="BorderBrush"
+                    Value="#B8FFFFFF"/>
+            <Setter Property="BorderThickness"
+                    Value="1"/>
+            <Setter Property="FontSize"
+                    Value="11"/>
+            <Setter Property="FontWeight"
+                    Value="SemiBold"/>
+            <Setter Property="Cursor"
+                    Value="Hand"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Border Background="#EAF5FAFC"
+            BorderBrush="#F2FFFFFF"
+            BorderThickness="1"
+            CornerRadius="18">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="74"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="54"/>
+            </Grid.RowDefinitions>
+
+            <!-- 顶部移动控制区 -->
+            <Border Grid.Row="0"
+                    Margin="12,12,12,0"
+                    Background="#D9FFFFFF"
+                    BorderBrush="#D8FFFFFF"
+                    BorderThickness="1"
+                    CornerRadius="14"
+                    MouseLeftButtonDown="SettingsMoveArea_MouseLeftButtonDown"
+                    Cursor="SizeAll">
+
+                <Grid Margin="20,0">
+
+                    <StackPanel VerticalAlignment="Center">
+
+                        <TextBlock Text="什亭之匣 · 设置"
+                                   Foreground="#174A68"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"/>
+
+                        <TextBlock Text="SHITTIM CHEST · CONFIGURATION"
+                                   Foreground="#47728A"
+                                   FontSize="8"
+                                   FontWeight="SemiBold"
+                                   Margin="0,3,0,0"/>
+
+                    </StackPanel>
+
+                    <Button Content="×"
+                            Width="34"
+                            Height="34"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            FontSize="22"
+                            FontWeight="Light"
+                            Padding="0,0,0,3"
+                            Style="{StaticResource SettingsButtonStyle}"
+                            Click="CloseSettingsButton_Click"/>
+
+                </Grid>
+
+            </Border>
+
+            <!-- 设置主体 -->
+            <Grid Grid.Row="1"
+                  Margin="12,12,12,8">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="178"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 左侧分类导航 -->
+                <Border Grid.Column="0"
+                        Margin="0,0,10,0"
+                        Background="#CFEAF4F8"
+                        BorderBrush="#E8FFFFFF"
+                        BorderThickness="1"
+                        CornerRadius="16"
+                        Padding="12">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="48"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- 导航标题 -->
+                        <StackPanel Grid.Row="0"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock Text="设置中心"
+                                       Foreground="#174A68"
+                                       FontSize="13"
+                                       FontWeight="SemiBold"/>
+
+                            <TextBlock Text="SETTINGS"
+                                       Foreground="#6E8CA0"
+                                       FontSize="7"
+                                       FontWeight="SemiBold"
+                                       Margin="0,2,0,0"/>
+
+                        </StackPanel>
+
+                        <!-- 分类按钮 -->
+                        <StackPanel Grid.Row="1"
+                                    VerticalAlignment="Top">
+
+                            <!-- 关于 -->
+                            <Button x:Name="AboutNavigationButton"
+                                    Content="关于&#x0a;ABOUT"
+                                    Style="{StaticResource SettingsNavigationButtonStyle}"/>
+
+                            <!-- 音频 -->
+                            <Button x:Name="AudioNavigationButton"
+                                    Content="音频&#x0a;AUDIO"
+                                    Style="{StaticResource SettingsNavigationButtonStyle}"/>
+
+                            <!-- 媒体库 -->
+                            <Button x:Name="LibraryNavigationButton"
+                                    Content="媒体库&#x0a;LIBRARY"
+                                    Style="{StaticResource SettingsNavigationButtonStyle}"/>
+
+                            <!-- 系统 -->
+                            <Button x:Name="SystemNavigationButton"
+                                    Content="系统&#x0a;SYSTEM"
+                                    Style="{StaticResource SettingsNavigationButtonStyle}"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Border>
+
+                <!-- 右侧内容区域 -->
+                <Border Grid.Column="1"
+                        Background="#CFEAF4F8"
+                        BorderBrush="#E8FFFFFF"
+                        BorderThickness="1"
+                        CornerRadius="16"
+                        Padding="26">
+
+                    <Grid>
+
+                        <!-- 关于页面 -->
+                        <Grid x:Name="AboutContentPanel">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="34"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- 页面标题 -->
+                            <StackPanel Grid.Row="0">
+
+                                <TextBlock Text="关于 / ABOUT"
+                                           Foreground="#174A68"
+                                           FontSize="12"
+                                           FontWeight="SemiBold"/>
+
+                                <Rectangle Height="1"
+                                           Margin="0,10,0,0"
+                                           Fill="#5B7890"
+                                           Opacity="0.25"/>
+
+                            </StackPanel>
+
+                            <!-- 原有关于内容 -->
+                            <Grid Grid.Row="1"
+                                  Margin="0,18,0,0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="220"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- 头像 -->
+                                <StackPanel Grid.Column="0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                    <Border Width="178"
+                                            Height="178"
+                                            Background="#FFFFFFFF"
+                                            BorderBrush="#B7D6E5"
+                                            BorderThickness="1"
+                                            CornerRadius="89"
+                                            Padding="4">
+
+                                        <Ellipse Width="168"
+                                                 Height="168">
+
+                                            <Ellipse.Fill>
+                                                <ImageBrush ImageSource="/ShittimEcho;component/CreatorAvatar.jpeg"
+                                                            Stretch="UniformToFill"/>
+                                            </Ellipse.Fill>
+
+                                        </Ellipse>
+
+                                    </Border>
+
+                                    <TextBlock Text="PERSONAL DEVELOPER"
+                                               Foreground="#47728A"
+                                               FontSize="9"
+                                               FontWeight="SemiBold"
+                                               HorizontalAlignment="Center"
+                                               Margin="0,12,0,0"/>
+
+                                    <TextBlock Text="制作人"
+                                               Foreground="#174A68"
+                                               FontSize="11"
+                                               HorizontalAlignment="Center"
+                                               Margin="0,4,0,0"/>
+
+                                </StackPanel>
+
+                                <!-- 软件信息 -->
+                                <StackPanel Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Margin="28,0,10,0">
+
+                                    <TextBlock Text="什亭之匣 · 回响"
+                                               Foreground="#174A68"
+                                               FontSize="30"
+                                               FontWeight="Light"/>
+
+                                    <TextBlock Text="SHITTIM CHEST · ECHO"
+                                               Foreground="#315D76"
+                                               FontSize="11"
+                                               FontWeight="SemiBold"
+                                               Margin="0,4,0,0"/>
+
+                                    <Border Height="1"
+                                            Background="#5B7890"
+                                            Opacity="0.28"
+                                            Margin="0,20,0,20"/>
+
+                                    <TextBlock Text="制作人"
+                                               Foreground="#5B7890"
+                                               FontSize="10"/>
+
+                                    <TextBlock Text="Irst_春川"
+                                               Foreground="#174A68"
+                                               FontSize="22"
+                                               FontWeight="SemiBold"
+                                               Margin="0,3,0,0"/>
+
+                                    <TextBlock Text="版本"
+                                               Foreground="#5B7890"
+                                               FontSize="10"
+                                               Margin="0,16,0,0"/>
+
+                                    <TextBlock Text="v1.0.0"
+                                               Foreground="#174A68"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"
+                                               Margin="0,3,0,0"/>
+
+                                    <TextBlock Text="Designed &amp; Developed by Irst_春川"
+                                               Foreground="#47728A"
+                                               FontSize="10"
+                                               Margin="0,18,0,0"/>
+
+                                    <TextBlock Text="2026 · SHITTIM CHEST PROJECT"
+                                               Foreground="#6E8CA0"
+                                               FontSize="9"
+                                               Margin="0,4,0,0"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <!-- 音频页面 -->
+                        <Grid x:Name="AudioContentPanel"
+                              Visibility="Collapsed">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="58"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- 音频页面标题 -->
+                            <StackPanel Grid.Row="0">
+
+                                <TextBlock Text="音频 / AUDIO"
+                                           Foreground="#174A68"
+                                           FontSize="22"
+                                           FontWeight="SemiBold"/>
+
+                                <TextBlock Text="高级音频参数 · ADVANCED AUDIO PARAMETERS"
+                                           Foreground="#6E8CA0"
+                                           FontSize="9"
+                                           FontWeight="SemiBold"
+                                           Margin="0,4,0,0"/>
+
+                                <Rectangle Height="1"
+                                           Fill="#5B7890"
+                                           Opacity="0.25"
+                                           Margin="0,14,0,0"/>
+
+                            </StackPanel>
+
+                            <!-- 音频参数 -->
+                            <StackPanel Grid.Row="1"
+                                        Margin="0,18,0,0">
+
+                                <!-- 音乐音量 -->
+                                <Border Background="#A8FFFFFF"
+                                        BorderBrush="#D8FFFFFF"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="18"
+                                        Margin="0,0,0,12">
+
+                                    <Grid>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="170"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+
+                                            <TextBlock Text="音乐音量"
+                                                       Foreground="#174A68"
+                                                       FontSize="14"
+                                                       FontWeight="SemiBold"/>
+
+                                            <TextBlock Text="Music Volume"
+                                                       Foreground="#6E8CA0"
+                                                       FontSize="9"
+                                                       Margin="0,3,0,0"/>
+
+                                            <TextBlock Text="调整锁屏音乐的默认播放音量。"
+                                                       Foreground="#47728A"
+                                                       FontSize="9"
+                                                       Margin="0,9,0,0"/>
+
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1"
+                                                    VerticalAlignment="Center">
+
+                                            <Slider x:Name="MusicVolumeSlider"
+                                                    Minimum="0"
+                                                    Maximum="100"
+                                                    Value="100"
+                                                    Height="22"/>
+
+                                            <TextBlock x:Name="MusicVolumeValueText"
+                                                       Text="100%"
+                                                       Foreground="#174A68"
+                                                       FontSize="10"
+                                                       HorizontalAlignment="Right"
+                                                       Margin="0,3,0,0"/>
+
+                                        </StackPanel>
+
+                                    </Grid>
+
+                                </Border>
+
+                                <!-- 欢迎语音音量 -->
+                                <Border Background="#A8FFFFFF"
+                                        BorderBrush="#D8FFFFFF"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="18"
+                                        Margin="0,0,0,12">
+
+                                    <Grid>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="170"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+
+                                            <TextBlock Text="欢迎语音音量"
+                                                       Foreground="#174A68"
+                                                       FontSize="14"
+                                                       FontWeight="SemiBold"/>
+
+                                            <TextBlock Text="Welcome Voice Volume"
+                                                       Foreground="#6E8CA0"
+                                                       FontSize="9"
+                                                       Margin="0,3,0,0"/>
+
+                                            <TextBlock Text="调整解锁后欢迎语音的默认播放音量。"
+                                                       Foreground="#47728A"
+                                                       FontSize="9"
+                                                       Margin="0,9,0,0"/>
+
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1"
+                                                    VerticalAlignment="Center">
+
+                                            <Slider x:Name="WelcomeVoiceVolumeSlider"
+                                                    Minimum="0"
+                                                    Maximum="100"
+                                                    Value="100"
+                                                    Height="22"/>
+
+                                            <TextBlock x:Name="WelcomeVoiceVolumeValueText"
+                                                       Text="100%"
+                                                       Foreground="#174A68"
+                                                       FontSize="10"
+                                                       HorizontalAlignment="Right"
+                                                       Margin="0,3,0,0"/>
+
+                                        </StackPanel>
+
+                                    </Grid>
+
+                                </Border>
+
+                                <!-- 解锁淡出时长 -->
+                                <Border Background="#A8FFFFFF"
+                                        BorderBrush="#D8FFFFFF"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="18">
+
+                                    <Grid>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="170"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+
+                                            <TextBlock Text="解锁淡出时长"
+                                                       Foreground="#174A68"
+                                                       FontSize="14"
+                                                       FontWeight="SemiBold"/>
+
+                                            <TextBlock Text="Unlock Fade Duration"
+                                                       Foreground="#6E8CA0"
+                                                       FontSize="9"
+                                                       Margin="0,3,0,0"/>
+
+                                            <TextBlock Text="调整解锁时音乐淡出的持续时间。"
+                                                       Foreground="#47728A"
+                                                       FontSize="9"
+                                                       Margin="0,9,0,0"/>
+
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1"
+                                                    VerticalAlignment="Center">
+
+                                            <Slider x:Name="UnlockFadeDurationSlider"
+                                                    Minimum="500"
+                                                    Maximum="5000"
+                                                    Value="1500"
+                                                    Height="22"/>
+
+                                            <TextBlock x:Name="UnlockFadeDurationValueText"
+                                                       Text="1500 ms"
+                                                       Foreground="#174A68"
+                                                       FontSize="10"
+                                                       HorizontalAlignment="Right"
+                                                       Margin="0,3,0,0"/>
+
+                                        </StackPanel>
+
+                                    </Grid>
+
+                                </Border>
+
+                            </StackPanel>
+
+                        </Grid>
+                        <!-- 媒体库页面 -->
+                        <Grid x:Name="LibraryContentPanel"
+      Visibility="Collapsed">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="58"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- 媒体库页面标题 -->
+                            <StackPanel Grid.Row="0">
+
+                                <TextBlock Text="媒体库 / LIBRARY"
+                   Foreground="#174A68"
+                   FontSize="22"
+                   FontWeight="SemiBold"/>
+
+                                <TextBlock Text="媒体资源管理 · MEDIA RESOURCE MANAGEMENT"
+                   Foreground="#6E8CA0"
+                   FontSize="9"
+                   FontWeight="SemiBold"
+                   Margin="0,4,0,0"/>
+
+                                <Rectangle Height="1"
+                   Fill="#5B7890"
+                   Opacity="0.25"
+                   Margin="0,14,0,0"/>
+
+                            </StackPanel>
+
+                            <!-- 媒体库内容 -->
+                            <ScrollViewer Grid.Row="1"
+                Margin="0,18,0,0"
+                VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Disabled">
+
+                                <StackPanel>
+
+
+                                    <!-- 音乐库 -->
+                                    <Border Background="#A8FFFFFF"
+                BorderBrush="#D8FFFFFF"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="18"
+                Margin="0,0,0,12">
+
+                                        <StackPanel>
+
+                                            <TextBlock Text="音乐库"
+                           Foreground="#174A68"
+                           FontSize="14"
+                           FontWeight="SemiBold"/>
+
+                                            <TextBlock Text="MUSIC LIBRARY"
+                           Foreground="#6E8CA0"
+                           FontSize="9"
+                           Margin="0,3,0,0"/>
+
+                                            <Rectangle Height="1"
+                           Fill="#5B7890"
+                           Opacity="0.18"
+                           Margin="0,12,0,12"/>
+
+                                            <Grid>
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="110"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackPanel Grid.Column="0">
+
+                                                    <TextBlock Text="状态"
+                                   Foreground="#6E8CA0"
+                                   FontSize="9"/>
+
+                                                    <TextBlock Text="音乐数量"
+                                   Foreground="#6E8CA0"
+                                   FontSize="9"
+                                   Margin="0,9,0,0"/>
+
+                                                    <TextBlock Text="当前目录"
+                                   Foreground="#6E8CA0"
+                                   FontSize="9"
+                                   Margin="0,9,0,0"/>
+
+                                                </StackPanel>
+
+                                                <StackPanel Grid.Column="1">
+
+                                                    <TextBlock Text="等待扫描"
+                                   Foreground="#174A68"
+                                   FontSize="10"
+                                   FontWeight="SemiBold"/>
+
+                                                    <TextBlock Text="—"
+                                   Foreground="#174A68"
+                                   FontSize="10"
+                                   Margin="0,9,0,0"/>
+
+                                                    <TextBlock Text="由主界面配置"
+                                   Foreground="#47728A"
+                                   FontSize="10"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="0,9,0,0"/>
+                                                    <TextBlock x:Name="MusicLibraryLiveDirectoryText"
+           Text="等待读取目录"
+           Foreground="#47728A"
+           FontSize="9"
+           TextTrimming="CharacterEllipsis"
+           Margin="0,3,0,0"/>
+
+                                                </StackPanel>
+
+                                            </Grid>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                    <!-- 音乐库实时信息 -->
+                                    <Border Background="#88FFFFFF"
+                                        BorderBrush="#B8FFFFFF"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        Padding="12"
+                                        Margin="0,0,0,12"
+                                        MinHeight="52">
+
+                                        <Grid>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Grid.Row="0"
+                                                       Text="实时扫描状态"
+                                                       Foreground="#6E8CA0"
+                                                       FontSize="8"/>
+
+                                                <TextBlock Grid.Row="1"
+                                                       x:Name="MusicLibraryLiveInfoText"
+                                                       Text="等待扫描"
+                                                       Foreground="#174A68"
+                                                       FontSize="10"
+                                                       FontWeight="SemiBold"
+                                                       Margin="0,3,0,0"/>
+
+                                            </Grid>
+
+                                            <TextBlock x:Name="MusicLibraryLiveCountText"
+                                                   Grid.Column="1"
+                                                   Text="—"
+                                                   Foreground="#174A68"
+                                                   FontSize="18"
+                                                   FontWeight="SemiBold"
+                                                   VerticalAlignment="Bottom"
+                                                   Margin="12,0,0,2"/>
+
+                                        </Grid>
+
+                                    </Border>
+
+                                    <!-- 语音库 -->
+                                    <Border Background="#A8FFFFFF"
+                BorderBrush="#D8FFFFFF"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="18"
+                Margin="0,0,0,12">
+
+                                        <StackPanel>
+
+                                            <TextBlock Text="语音库"
+                           Foreground="#174A68"
+                           FontSize="14"
+                           FontWeight="SemiBold"/>
+
+                                            <TextBlock Text="VOICE LIBRARY"
+                           Foreground="#6E8CA0"
+                           FontSize="9"
+                           Margin="0,3,0,0"/>
+
+                                            <Rectangle Height="1"
+                           Fill="#5B7890"
+                           Opacity="0.18"
+                           Margin="0,12,0,12"/>
+
+                                            <Grid>
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="110"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackPanel Grid.Column="0">
+
+                                                    <TextBlock Text="状态"
+                                   Foreground="#6E8CA0"
+                                   FontSize="9"/>
+
+                                                    <TextBlock Text="语音数量"
+                                   Foreground="#6E8CA0"
+                                   FontSize="9"
+                                   Margin="0,9,0,0"/>
+
+                                                    <TextBlock Text="当前目录"
+                                   Foreground="#6E8CA0"
+                                   FontSize="9"
+                                   Margin="0,9,0,0"/>
+
+                                                </StackPanel>
+
+                                                <StackPanel Grid.Column="1">
+
+                                                    <TextBlock Text="等待扫描"
+                                   Foreground="#174A68"
+                                   FontSize="10"
+                                   FontWeight="SemiBold"/>
+
+                                                    <TextBlock Text="—"
+                                   Foreground="#174A68"
+                                   FontSize="10"
+                                   Margin="0,9,0,0"/>
+
+                                                    <TextBlock Text="由主界面配置"
+                                   Foreground="#47728A"
+                                   FontSize="10"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="0,9,0,0"/>
+                                                    <TextBlock x:Name="VoiceLibraryLiveDirectoryText"
+           Text="等待读取目录"
+           Foreground="#47728A"
+           FontSize="9"
+           TextTrimming="CharacterEllipsis"
+           Margin="0,3,0,0"/>
+
+                                                </StackPanel>
+
+                                            </Grid>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                    <!-- 语音库实时信息 -->
+                                    <Border Background="#88FFFFFF"
+                                        BorderBrush="#B8FFFFFF"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        Padding="12"
+                                        MinHeight="52">
+
+                                        <Grid>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Grid.Row="0"
+                                                       Text="实时扫描状态"
+                                                       Foreground="#6E8CA0"
+                                                       FontSize="8"/>
+
+                                                <TextBlock Grid.Row="1"
+                                                       x:Name="VoiceLibraryLiveInfoText"
+                                                       Text="等待扫描"
+                                                       Foreground="#174A68"
+                                                       FontSize="10"
+                                                       FontWeight="SemiBold"
+                                                       Margin="0,3,0,0"/>
+
+                                            </Grid>
+
+                                            <TextBlock x:Name="VoiceLibraryLiveCountText"
+                                                   Grid.Column="1"
+                                                   Text="—"
+                                                   Foreground="#174A68"
+                                                   FontSize="18"
+                                                   FontWeight="SemiBold"
+                                                   VerticalAlignment="Bottom"
+                                                   Margin="12,0,0,2"/>
+
+                                        </Grid>
+
+                                    </Border>
+
+                                </StackPanel>
+
+                            </ScrollViewer>
+
+                        </Grid>
+                        <!-- 系统页面 -->
+                        <Grid x:Name="SystemContentPanel"
+      Visibility="Collapsed">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="58"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- 系统页面标题 -->
+                            <StackPanel Grid.Row="0">
+
+                                <TextBlock Text="系统 / SYSTEM"
+                   Foreground="#174A68"
+                   FontSize="22"
+                   FontWeight="SemiBold"/>
+
+                                <TextBlock Text="系统运行与应用行为 · SYSTEM &amp; APPLICATION"
+                   Foreground="#6E8CA0"
+                   FontSize="9"
+                   FontWeight="SemiBold"
+                   Margin="0,4,0,0"/>
+
+                                <Rectangle Height="1"
+                   Fill="#5B7890"
+                   Opacity="0.25"
+                   Margin="0,14,0,0"/>
+
+                            </StackPanel>
+
+                            <!-- 系统内容 -->
+                            <StackPanel Grid.Row="1"
+                Margin="0,18,0,0">
+
+                                <!-- 后台运行 -->
+                                <Border Background="#A8FFFFFF"
+                BorderBrush="#D8FFFFFF"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="18"
+                Margin="0,0,0,12">
+
+                                    <StackPanel>
+
+                                        <TextBlock Text="后台运行"
+                           Foreground="#174A68"
+                           FontSize="14"
+                           FontWeight="SemiBold"/>
+
+                                        <TextBlock Text="BACKGROUND OPERATION"
+                           Foreground="#6E8CA0"
+                           FontSize="9"
+                           Margin="0,3,0,0"/>
+
+                                        <Rectangle Height="1"
+                           Fill="#5B7890"
+                           Opacity="0.18"
+                           Margin="0,12,0,12"/>
+
+                                        <TextBlock Text="应用将在关闭主界面后继续保持后台运行。"
+                           Foreground="#47728A"
+                           FontSize="10"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- 系统状态 -->
+                                <Border Background="#A8FFFFFF"
+                BorderBrush="#D8FFFFFF"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="18">
+
+                                    <StackPanel>
+
+                                        <TextBlock Text="系统状态"
+                           Foreground="#174A68"
+                           FontSize="14"
+                           FontWeight="SemiBold"/>
+
+                                        <TextBlock Text="SYSTEM STATUS"
+                           Foreground="#6E8CA0"
+                           FontSize="9"
+                           Margin="0,3,0,0"/>
+
+                                        <Rectangle Height="1"
+                           Fill="#5B7890"
+                           Opacity="0.18"
+                           Margin="0,12,0,12"/>
+
+                                        <TextBlock Text="什亭之匣 · 回响正在运行"
+                           Foreground="#174A68"
+                           FontSize="10"
+                           FontWeight="SemiBold"/>
+
+                                        <TextBlock Text="后台音频监控模块已准备就绪"
+                           Foreground="#47728A"
+                           FontSize="9"
+                           Margin="0,6,0,0"/>
+
+                                        <TextBlock x:Name="SystemStatusText"
+           Text="等待状态检测"
+           Foreground="#174A68"
+           FontSize="10"
+           FontWeight="SemiBold"
+           Margin="0,10,0,0"/>
+
+                                        <TextBlock x:Name="SystemStatusDetailText"
+           Text="等待系统状态刷新"
+           Foreground="#47728A"
+           FontSize="9"
+           Margin="0,6,0,0"/>
+
+                                        <!-- 系统启动与后台运行设置 -->
+                                        <Border Background="#88FFFFFF"
+        BorderBrush="#B8FFFFFF"
+        BorderThickness="1"
+        CornerRadius="10"
+        Padding="12"
+        Margin="0,12,0,0">
+
+                                            <StackPanel>
+
+                                                <!-- 开机启动 -->
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackPanel Grid.Column="0">
+                                                        <TextBlock Text="开机启动"
+                           Foreground="#174A68"
+                           FontSize="10"
+                           FontWeight="SemiBold"/>
+
+                                                        <TextBlock Text="使用 Windows 任务计划程序，在系统启动时运行"
+                           Foreground="#47728A"
+                           FontSize="9"
+                           Margin="0,4,0,0"/>
+                                                    </StackPanel>
+
+                                                    <CheckBox x:Name="StartupTaskCheckBox"
+                      Grid.Column="1"
+                      IsChecked="False"
+                      VerticalAlignment="Center"
+                      Margin="16,0,0,0"/>
+                                                </Grid>
+
+                                                <!-- 分隔线 -->
+                                                <Border Height="1"
+                Background="#28708AA0"
+                Margin="0,12,0,12"/>
+
+                                                <!-- 关闭窗口后后台运行 -->
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackPanel Grid.Column="0">
+                                                        <TextBlock Text="关闭主窗口后继续后台运行"
+                           Foreground="#174A68"
+                           FontSize="10"
+                           FontWeight="SemiBold"/>
+
+                                                        <TextBlock Text="关闭主界面后，程序继续驻留后台运行"
+                           Foreground="#47728A"
+                           FontSize="9"
+                           Margin="0,4,0,0"/>
+                                                    </StackPanel>
+
+                                                    <CheckBox x:Name="RunInBackgroundCheckBox"
+                      Grid.Column="1"
+                      IsChecked="False"
+                      VerticalAlignment="Center"
+                      Margin="16,0,0,0"/>
+                                                </Grid>
+
+                                            </StackPanel>
+                                        </Border>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+            <!-- 底部 -->
+            <Grid Grid.Row="2"
+                  Margin="12,0,12,12">
+
+                <TextBlock Text="设置中心 · 关于信息"
+                           Foreground="#47728A"
+                           FontSize="9"
+                           VerticalAlignment="Center"/>
+
+                <TextBlock Text="v1.0.0"
+                           Foreground="#47728A"
+                           FontSize="9"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,0,12,0"/>
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+
+</Window>
